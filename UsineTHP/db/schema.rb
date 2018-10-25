@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_104643) do
+ActiveRecord::Schema.define(version: 2018_07_26_184257) do
 
   create_table "assemblies", force: :cascade do |t|
-    t.string "name"
+    t.string "assembly_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "assenblies_parts", id: false, force: :cascade do |t|
-    t.integer "assenbly_id"
-    t.integer "part_id"
-    t.index ["assenbly_id"], name: "index_assenblies_parts_on_assenbly_id"
-    t.index ["part_id"], name: "index_assenblies_parts_on_part_id"
+  create_table "assemblies_spares", id: false, force: :cascade do |t|
+    t.integer "assembly_id", null: false
+    t.integer "spare_id", null: false
   end
 
-  create_table "parts", force: :cascade do |t|
-    t.string "part_number"
+  create_table "spares", force: :cascade do |t|
+    t.string "spare_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
